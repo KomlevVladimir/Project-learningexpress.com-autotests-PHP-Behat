@@ -1,0 +1,52 @@
+default:
+  suites:
+    account:
+        paths: [ %paths.base%/features/account ]
+        contexts: [ src\Steps\ClientContext ]
+        filters:
+          tags: ~@not-auto
+    cart:
+        paths: [ %paths.base%/features/cart ]
+        contexts: [ src\Steps\ClientContext ]
+        filters:
+          tags: ~@not-auto
+
+    navigation:
+        paths: [ %paths.base%/features/navigation ]
+        contexts: [ src\Steps\ClientContext ]
+        filters:
+          tags: ~@not-auto
+
+    checkout:
+        paths: [ %paths.base%/features/checkout ]
+        contexts: [ src\Steps\ClientContext ]
+        filters:
+          tags: ~@not-auto
+    front:
+        paths: [ %paths.base%/features/front ]
+        contexts: [ src\Steps\ClientContext ]
+        filters:
+          tags: ~@not-auto
+
+    search:
+        paths: [ %paths.base%/features/search ]
+        contexts: [ src\Steps\ClientContext ]
+        filters:
+          tags: ~@not-auto
+
+    wishList:
+         paths: [ %paths.base%/features/wishList ]
+         contexts: [ src\Steps\ClientContext ]
+         filters:
+           tags: ~@not-auto
+
+
+  extensions:
+    SensioLabs\Behat\PageObjectExtension:
+      namespaces:
+        page: [src\Pages\FrontPages, src\Pages\FrontPages\PageElements, src\Pages\FrontPages\Shop, src\Pages\FrontPages\MyAccount]
+        element: [src\Elements]
+    Behat\MinkExtension:
+      base_url: https://learningexpress.com/
+      selenium2:
+       browser: firefox
