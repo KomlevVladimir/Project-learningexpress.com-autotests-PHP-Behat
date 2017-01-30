@@ -67,4 +67,25 @@ class TestDataHelper
 
         return $faker->countryCode;
     }
+
+    public static function GetRandomCaptchaCode()
+    {
+        $faker = Faker\Factory::create();
+
+        return $faker->password;
+    }
+
+    public static function GetRandomNumberCode()
+    {
+        $faker = Faker\Factory::create();
+
+        return $faker->numberBetween(111111111, 999999999);
+    }
+
+    public static function GetRandomGiftCardAmount()
+    {
+        $faker = Faker\Factory::create();
+
+        return $faker->numberBetween(1, 25);
+    }
 }

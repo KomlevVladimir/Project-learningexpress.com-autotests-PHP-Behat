@@ -422,6 +422,36 @@ class Table extends ProxyElement
         return $cell;
     }
 
+    /**
+     * @param $rowNum
+     * @param $colNum
+     * @return \Behat\Mink\Element\NodeElement|null
+     */
+    public function getCellDlText($rowNum, $colNum)
+    {
+        $xpath = $this->getElement()->getXpath()."/tbody/tr[".$rowNum."]/td[".$colNum."]/dl";
+        $cellElement = $this->getElement()->getSession()->getPage()->find('xpath', $xpath);
+
+        return $cellElement;
+    }
+
+    /**
+     * @param $rowContains
+     * @param $th
+     * @return \Behat\Mink\Element\NodeElement|null
+     */
+    public function getCellDlTextForRowContainsTextAndTh($rowContains, $th)
+    {
+        $rowNumber = $this->getRowNumberContainingText($rowContains);
+        $colNumber = $this->getColumnNumberWithThContains($th);
+        $cell = null;
+
+        if ($rowNumber !== 0 && $colNumber !== 0)
+            $cell = $this->getCellDlText($rowNumber, $colNumber);
+
+        return $cell;
+    }
+
 
 
 }

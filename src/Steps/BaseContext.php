@@ -37,6 +37,8 @@ use src\Pages\FrontPages\MyAccount\AddNewAddressPage;
 use src\Pages\FrontPages\MyAccount\EditAddressPage;
 use src\Pages\FrontPages\MyAccount\NewsLetterSubscriptionPage;
 use src\Pages\FrontPages\PageElements\FooterBlockElements;
+use src\Pages\FrontPages\CheckGiftCardInformationPage;
+use src\Pages\FrontPages\ElectronicGiftCardPage;
 
 class BaseContext extends PageObjectContext
 {
@@ -302,6 +304,22 @@ class BaseContext extends PageObjectContext
     public function getFooterBlockElements()
     {
         return $this->getPage("FooterBlockElements");
+    }
+
+    /**
+     * @return CheckGiftCardInformationPage
+     */
+    public function getCheckGiftCardInformationPage()
+    {
+        return $this->getPage("CheckGiftCardInformationPage");
+    }
+
+    /**
+     * @return ElectronicGiftCardPage
+     */
+    public function getElectronicGiftCardPage()
+    {
+        return $this->getPage("ElectronicGiftCardPage");
     }
 
 }

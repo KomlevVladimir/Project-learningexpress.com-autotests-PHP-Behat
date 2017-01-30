@@ -70,7 +70,6 @@ class ClientContext extends BaseContext
     }
 
 
-
     /**
      * @Given /^client is on the main page$/
      */
@@ -116,7 +115,7 @@ class ClientContext extends BaseContext
         $actualResult = substr($this->getCatalogAdvancedSearchPage()->getTxtInterest()->getText(), 10);
         \PHPUnit_Framework_Assert::assertEquals($interest, $actualResult);
         $itemsNumber = substr($this->getCatalogAdvancedSearchPage()->getTxtItemsNumber()->getText(), 10, -9);
-        $itemsNumber = (int) $itemsNumber;
+        $itemsNumber = (int)$itemsNumber;
         \PHPUnit_Framework_Assert::assertTrue($itemsNumber > 0, "Items are not found");
     }
 
@@ -137,9 +136,9 @@ class ClientContext extends BaseContext
     {
         for ($i = 1; $i <= 10; $i++) {
             $price = substr($this->getProductsListElements()->getItemPrice($i)->getText(), 1);
-            $price = (float) $price;
-            $from = (float) $from;
-            $to = (float) $to;
+            $price = (float)$price;
+            $from = (float)$from;
+            $to = (float)$to;
             \PHPUnit_Framework_Assert::assertTrue($price >= $from, "Price is less than 'from' value");
             \PHPUnit_Framework_Assert::assertTrue($price <= $to, "Price is more than 'to' value");
         }
@@ -169,7 +168,7 @@ class ClientContext extends BaseContext
         $actualResult = $this->getShopPage()->getTxtFilterParameter()->getText();
         \PHPUnit_Framework_Assert::assertEquals($link, $actualResult);
         $itemsNumber = substr($this->getShopPage()->getTxtItemsNumber()->getText(), 10, -9);
-        $itemsNumber = (int) $itemsNumber;
+        $itemsNumber = (int)$itemsNumber;
         \PHPUnit_Framework_Assert::assertTrue($itemsNumber > 0, "Items are not found");
     }
 
@@ -280,12 +279,11 @@ class ClientContext extends BaseContext
      */
     public function searchParametersShouldBeMatchedWithResult($name, $priceFrom, $priceTo, $description)
     {
-        for ($i = 1; $this->getProductsListElements()->getItemPrice($i) == null; $i++)
-        {
+        for ($i = 1; $this->getProductsListElements()->getItemPrice($i) == null; $i++) {
             $price = substr($this->getProductsListElements()->getItemPrice($i)->getText(), 1);
-            $price = (float) $price;
-            $from = (float) $priceFrom;
-            $to = (float) $priceTo;
+            $price = (float)$price;
+            $from = (float)$priceFrom;
+            $to = (float)$priceTo;
             \PHPUnit_Framework_Assert::assertTrue($price >= $from, "Price is less than 'from' value");
             \PHPUnit_Framework_Assert::assertTrue($price <= $to, "Price is more than 'to' value");
 
@@ -634,9 +632,9 @@ class ClientContext extends BaseContext
     {
         $shoppingCartPage = $this->getShoppingCartPage();
         $expectedSubtotalAmount = substr($this->item->price, 1) * $changedQuantity;
-        $subtotalAmount =  $shoppingCartPage->getCartTable()->getCellSpanElementForRowContainsTextAndTh(
+        $subtotalAmount = $shoppingCartPage->getCartTable()->getCellSpanElementForRowContainsTextAndTh(
             $this->item->name, 'Subtotal')->getText();
-        $actualSubtotalAmount = substr ($subtotalAmount, 1);
+        $actualSubtotalAmount = substr($subtotalAmount, 1);
 
         \PHPUnit_Framework_Assert::assertEquals(
             $expectedSubtotalAmount,
@@ -753,7 +751,7 @@ class ClientContext extends BaseContext
         $this->getAddedToyToCartPopup()->getBtnGoToShoppingCart()->click();
         $itemPrice = substr($this->item->price, 1);
         $expectedAmount = (float)$itemPrice * $this->item->quantity;
-        $actualAmount =  substr($this->getShoppingCartPage()->getTxtTotalAmountDue()->getText(), 1);
+        $actualAmount = substr($this->getShoppingCartPage()->getTxtTotalAmountDue()->getText(), 1);
         \PHPUnit_Framework_Assert::assertEquals($expectedAmount, $actualAmount, "Wrong total amount due");
     }
 
@@ -1173,7 +1171,7 @@ class ClientContext extends BaseContext
         $firstName = $this->client->firstName;
         $lastName = $this->client->lastName;
         $emailAddress = $this->client->emailAddress;
-        $expectedResult =  "$firstName $lastName $emailAddress";
+        $expectedResult = "$firstName $lastName $emailAddress";
         $actualResult = substr($this->getAccountDashboardPage()->getTxtContactInformation()->getText(), 0, -16);
         \PHPUnit_Framework_Assert::assertEquals(
             $expectedResult,
@@ -1454,7 +1452,7 @@ class ClientContext extends BaseContext
             $expectedResult,
             $actualResult,
             "Billing address is not edited"
-            );
+        );
         \PHPUnit_Framework_Assert::assertEquals(
             'The address has been saved.',
             $this->getAddressBookPage()->getTxtAddressHasBeenSaved()->getText(),
@@ -1515,7 +1513,7 @@ class ClientContext extends BaseContext
             $expectedResult,
             $actualResult,
             "Billing address is not edited"
-            );
+        );
         \PHPUnit_Framework_Assert::assertEquals(
             'The address has been saved.',
             $this->getAddressBookPage()->getTxtAddressHasBeenSaved()->getText(),
@@ -1631,7 +1629,7 @@ class ClientContext extends BaseContext
             $actualAddressList,
             "No delete address"
         );
-        if($numberAddress == 'Last') {
+        if ($numberAddress == 'Last') {
             $numberAddress = $this->client->addressesCount - 1;
         }
         if ($this->getAddressBookPage()->txtNoAddressesIsPresent()) {
@@ -1769,7 +1767,8 @@ class ClientContext extends BaseContext
     {
         $this->getHeaderBlockElements()->getLnkHeaderMenuByName('Shop')->mouseOver();
         if ($linkName == 'All Categories' || $linkName == 'Advanced Search' ||
-            $linkName == 'Catalogs' || $linkName == 'Specials and Promotions ') {
+            $linkName == 'Catalogs' || $linkName == 'Specials and Promotions '
+        ) {
             $this->getHeaderBlockElements()->getLnkSubmenuStrongTagByName($linkName)->click();
         } else {
             $this->getHeaderBlockElements()->getLnkSubmenuByName($linkName)->click();
@@ -1782,7 +1781,7 @@ class ClientContext extends BaseContext
     public function clientClicksToFranchiseSubmenuLink($linkName)
     {
         $this->getHeaderBlockElements()->getLnkHeaderMenuByName('Franchise')->mouseOver();
-        if($linkName == 'Welcome') {
+        if ($linkName == 'Welcome') {
             $this->getHeaderBlockElements()->getLnkFranchiseSubmenuByName($linkName)->click();
         } elseif ($linkName == 'News') {
             $this->getHeaderBlockElements()->getLnkMeuItemNews()->click();
@@ -1797,7 +1796,7 @@ class ClientContext extends BaseContext
     public function clientClicksToBlogSubmenuLink($linkName)
     {
         $this->getHeaderBlockElements()->getLnkHeaderMenuByName('Blog')->mouseOver();
-        if($linkName == 'Franchising') {
+        if ($linkName == 'Franchising') {
             $this->getHeaderBlockElements()->getLnkMenuItemFranchising()->click();
         } else {
             $this->getHeaderBlockElements()->getLnkSubmenuByName($linkName)->click();
@@ -1818,6 +1817,135 @@ class ClientContext extends BaseContext
         } else {
             $this->getFooterBlockElements()->getLnkFooterMenuByName($linkName)->click();
         }
+    }
+
+    /**
+     * @When /^client enters invalid gift card code (.*) and captcha code (.*)$/
+     */
+    public function clientEntersInvalidGiftCardCodeAndCaptchaCode($giftCardCode, $captchaCode)
+    {
+        if ($giftCardCode == 'random') {
+            $giftCardCode = TestDataHelper::GetRandomNumberCode();
+        }
+
+        if ($captchaCode == 'random') {
+            $captchaCode = TestDataHelper::GetRandomCaptchaCode();
+        }
+        $this->getCheckGiftCardInformationPage()->fillForms($giftCardCode, $captchaCode);
+        $this->getCheckGiftCardInformationPage()->getBtnCheckGiftCard()->click();
+    }
+
+    /**
+     * @Then /^error message should be displayed$/
+     */
+    public function errorMessageShouldBeDisplayed()
+    {
+        $expectedResult = 'Captcha invalid';
+        $actualResult = $this->getCheckGiftCardInformationPage()->getErrorMessage()->getText();
+        \PHPUnit_Framework_Assert::assertEquals($expectedResult, $actualResult);
+    }
+
+    /**
+     * @When /^client enters gift card amount (.*)$/
+     */
+    public function clientEntersGiftCardAmount($amount)
+    {
+        $this->item->name = $this->getElectronicGiftCardPage()->getTxtHeaderGiftCard()->getText();
+        if ($amount == 'random') {
+            $amount = TestDataHelper::GetRandomGiftCardAmount();
+        }
+        $this->getElectronicGiftCardPage()->getFldEnterAmount()->setValue($amount);
+        $this->item->price = $this->getElectronicGiftCardPage()->getFldEnterAmount()->getValue();
+    }
+
+    /**
+     * @Given /^client activates send gift card to friend checkbox (.*) and fill forms (.*), (.*), (.*)$/
+     */
+    public function clientActivatesSendGiftCardToFriendCheckboxAndFillForms($sendGiftCardToFriend, $recipientName, $recipientEmail, $customMessage)
+    {
+        if ($sendGiftCardToFriend == '1') {
+            $this->getElectronicGiftCardPage()->getChkSendGiftCardToFriend()->click();
+        }
+        if ($recipientName == 'random') {
+            $recipientName = TestDataHelper::GetRandomFirstName();
+        }
+        if ($recipientEmail == 'random') {
+            $recipientEmail = TestDataHelper::GetRandomEmail();
+        }
+        $this->getElectronicGiftCardPage()->getFldRecipientName()->setValue($recipientName);
+        $this->getElectronicGiftCardPage()->getFldRecipientEmail()->setValue($recipientEmail);
+        $this->getElectronicGiftCardPage()->getFldCustomMessage()->setValue($customMessage);
+        $this->client->firstName = $this->getElectronicGiftCardPage()->getFldRecipientName()->getValue();
+        $this->client->emailAddress = $this->getElectronicGiftCardPage()->getFldRecipientEmail()->getValue();
+    }
+
+    /**
+     * @Given /^client sets quantity (.*) of gift cards$/
+     */
+    public function clientSetsQuantityOfGiftCards($quantity)
+    {
+        $this->getElectronicGiftCardPage()->getFldQuantity()->setValue($quantity);
+        $this->item->quantity = $quantity;
+    }
+
+    /**
+     * @Given /^client adds gift card to cart$/
+     */
+    public function clientAddsGiftCardToCart()
+    {
+        $this->getElectronicGiftCardPage()->getBtnAddToCard()->click();
+    }
+
+    /**
+     * @Then /^gift card should be displayed on the cart popup$/
+     */
+    public function giftCardShouldBeDisplayedOnTheCartPopup()
+    {
+        $this->itemShouldBeDisplayedOnTheCartPopup();
+    }
+
+    /**
+     * @Given /^gift card with quantity, price, recipient data and custom message (.*) should be displayed$/
+     */
+    public function giftCardWithQuantityPriceAndRecipientDataShouldBeDisplayed($customMessage)
+    {
+        $this->getAddedToyToCartPopup()->getBtnGoToShoppingCart()->doubleClick();
+
+        $shoppingCartPage = $this->getShoppingCartPage();
+        $expectedItemName = $this->item->name;
+        $actualItemName = $shoppingCartPage->getCartTable()->getCellTextLinkForRowContainsTextAndTh(
+            $this->item->name, 'Product Name')->getText();
+        $expectedItemPrice = $this->item->price;
+        $actualItemPrice = $shoppingCartPage->getCartTable()->getCellSpanElementForRowContainsTextAndTh(
+            $this->item->name, 'Unit Price')->getText();
+        $expectedQuantity = $this->item->quantity;
+        $actualQuantity = $shoppingCartPage->getCartTable()->getCellInputForRowContainsTextAndTh(
+            $this->item->name, 'Qty')->getValue();
+        $actualRecipientInfo = $shoppingCartPage->getCartTable()->getCellDlTextForRowContainsTextAndTh(
+            $this->client->firstName, 'Product Name')->getText();
+        $expectedRecipientInfo = "Recipient name " . $this->client->firstName . " Recipient email " .
+            $this->client->emailAddress . " Custom message " . $customMessage;
+
+        \PHPUnit_Framework_Assert::assertEquals(
+            $expectedItemName,
+            $actualItemName,
+            "Wrong item name"
+        );
+        \PHPUnit_Framework_Assert::assertEquals(
+            "$" . $expectedItemPrice,
+            substr($actualItemPrice, 0, -3),
+            "Wrong item price"
+        );
+        \PHPUnit_Framework_Assert::assertEquals(
+            $expectedQuantity,
+            $actualQuantity,
+            "Wrong quantity"
+        );
+        \PHPUnit_Framework_Assert::assertEquals(
+            $expectedRecipientInfo,
+            $actualRecipientInfo,
+            "Recipient info does not match"
+        );
     }
 
 
