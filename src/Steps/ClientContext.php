@@ -177,7 +177,7 @@ class ClientContext extends BaseContext
      */
     public function clientClicksToClearAll()
     {
-        $this->getShopPage()->getBtnClearAll()->click();
+        $this->getLeftSidebarBlockElements()->getBtnClearAll()->click();
         sleep(2);
     }
 
@@ -1946,6 +1946,137 @@ class ClientContext extends BaseContext
             $actualRecipientInfo,
             "Recipient info does not match"
         );
+    }
+
+    /**
+     * @When /^client clicks the skill builders catalog button$/
+     */
+    public function clientClicksTheSkillBuildersCatalogButton()
+    {
+        $this->getLeftSidebarBlockElements()->getBtnSkillsBuildersCatalog()->click();
+    }
+
+    /**
+     * @Then /^skill builders catalog should be opened$/
+     */
+    public function skillBuildersCatalogShouldBeOpened()
+    {
+        \PHPUnit_Framework_Assert::assertContains('/shop-online/skill-builders/',
+            $this->getShopPage()->getSession()->getCurrentUrl(),
+            "URL does not match"
+        );
+        \PHPUnit_Framework_Assert::assertEquals(
+            'Toys for Children with Special Needs',
+            $this->getSkillBuildersCatalogPage()->getTxtHeader()->getText(),
+            "Wrong page"
+        );
+
+    }
+
+    /**
+     * @Given /^client is on the skill builders catalog page$/
+     */
+    public function clientIsOnTheSkillBuildersCatalogPage()
+    {
+        $this->getPage('SkillBuildersCatalogPage')->open();
+    }
+
+    /**
+     * @When /^client clicks to the visit calico critters headquarters button$/
+     */
+    public function clientClicksToTheVisitCalicoCrittersHeadquartersButton()
+    {
+        $this->getLeftSidebarBlockElements()->getBtnVisitOuHeadQuarters()->click();
+    }
+
+    /**
+     * @Then /^calico critters headquarters page should be opened$/
+     */
+    public function calicoCrittersHeadquartersPageShouldBeOpened()
+    {
+        \PHPUnit_Framework_Assert::assertContains(
+            '/calico-critters/',
+            $this->getSkillBuildersCatalogPage()->getSession()->getCurrentUrl(),
+            "Url does not match"
+        );
+    }
+
+    /**
+     * @When /^client clicks post link (.*)$/
+     */
+    public function clientClicksPostLink($linkName)
+    {
+        $this->getLeftSidebarBlockElements()->getPostByName($linkName)->click();
+    }
+
+    /**
+     * @Then /^page by link (.*) should be opened$/
+     */
+    public function pageByLinkShouldBeOpened($linkName)
+    {
+        \PHPUnit_Framework_Assert::assertEquals(
+            $linkName,
+            $this->getPostPage()->getTxtHeader()->getText()
+        );
+    }
+
+    /**
+     * @When /^client clicks category link (.*)$/
+     */
+    public function clientClicksCategoryLink($linkName)
+    {
+        $this->getLeftSidebarBlockElements()->getCategoryByName($linkName)->click();
+    }
+
+    /**
+     * @When /^client selects date (.*)$/
+     */
+    public function clientSelectsDate($date)
+    {
+        $this->getLeftSidebarBlockElements()->getCmbArchiveList()->selectOption($date);
+    }
+
+    /**
+     * @Then /^(.*) archive page should be opened$/
+     */
+    public function archivePageShouldBeOpened($date)
+    {
+        $expectedResult = 'Monthly Archives: ' . $date;
+        $actualResult = $this->getMonthlyArchivesPage()->getTxtHeader()->getText();
+        \PHPUnit_Framework_Assert::assertEquals($expectedResult, $actualResult, "Wrong page");
+    }
+
+    /**
+     * @Then /^review should be done$/
+     */
+    public function reviewShouldBeDone()
+    {
+        $expectedMessage = 'Thank you for your review, it has been accepted for moderation.';
+        $actualMessage = $this->getItemPage()->getTxtFlashMessage()->getText();
+        \PHPUnit_Framework_Assert::assertEquals(
+            $expectedMessage,
+            $actualMessage,
+            "The review has not been done"
+        );
+    }
+
+    /**
+     * @Given /^client chooses item (.*) from page (.*)$/
+     */
+    public function clientChoosesItemFromPage($itemNumber, $pageName)
+    {
+        $this->clientIsOnThePage($pageName);
+        $this->clientChoosesFromProductList($itemNumber);
+    }
+
+    /**
+     * @When /^client gives a review with data: (.*), (.*), (.*), (.*), (.*), (.*)$/
+     */
+    public function clientGivesAReviewWithData($nickName, $summaryOfYourReview, $review, $quality, $price, $value)
+    {
+        $this->getItemPage()->getLnkReviewsTab()->click();
+        $this->getItemPage()->giveReview($nickName, $summaryOfYourReview, $review, $quality, $price, $value);
+
     }
 
 

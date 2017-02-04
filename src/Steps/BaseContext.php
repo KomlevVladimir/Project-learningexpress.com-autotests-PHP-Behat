@@ -39,6 +39,10 @@ use src\Pages\FrontPages\MyAccount\NewsLetterSubscriptionPage;
 use src\Pages\FrontPages\PageElements\FooterBlockElements;
 use src\Pages\FrontPages\CheckGiftCardInformationPage;
 use src\Pages\FrontPages\ElectronicGiftCardPage;
+use src\Pages\FrontPages\Shop\SkillBuildersCatalogPage;
+use src\Pages\FrontPages\PostPage;
+use src\Pages\FrontPages\MonthlyArchivesPage;
+
 
 class BaseContext extends PageObjectContext
 {
@@ -320,6 +324,30 @@ class BaseContext extends PageObjectContext
     public function getElectronicGiftCardPage()
     {
         return $this->getPage("ElectronicGiftCardPage");
+    }
+
+    /**
+     * @return SkillBuildersCatalogPage
+     */
+    public function getSkillBuildersCatalogPage()
+    {
+        return $this->getPage("SkillBuildersCatalogPage");
+    }
+
+    /**
+     * @return PostPage
+     */
+    public function getPostPage()
+    {
+        return $this->getPage("PostPage");
+    }
+
+    /**
+     * @return MonthlyArchivesPage
+     */
+    public function getMonthlyArchivesPage()
+    {
+        return $this->getPage("MonthlyArchivesPage");
     }
 
 }

@@ -17,7 +17,6 @@ class ShopPage extends BasePage
     protected $elements = [
         'txtFilterParameter' => ['xpath' => '//div[@class=\'currently\']/ol/li/span[@class=\'value\']'],
         'txtItemsNumber' => ['xpath' => '//div[@class=\'pager\']/div[@class=\'pager_bottom\']/p[@class=\'total_product\']'],
-        'btnClearAll' => ['xpath' => '//div[@class=\'block-content\']/div[@class=\'actions\']/a'],
     ];
 
     public function getLink($link)
@@ -31,6 +30,7 @@ class ShopPage extends BasePage
     public function getTxtFilterParameter()
     {
         $this->waitElement('txtFilterParameter');
+
         return $this->getElement('txtFilterParameter');
     }
 
@@ -40,17 +40,10 @@ class ShopPage extends BasePage
     public function getTxtItemsNumber()
     {
         $this->waitElement('txtItemsNumber');
+
         return $this->getElement('txtItemsNumber');
     }
 
-    /**
-     * @return Element
-     */
-    public function getBtnClearAll()
-    {
-        $this->waitElement('btnClearAll');
-        return $this->getElement('btnClearAll');
-    }
 
     public function txtFilterParameterIsPresent()
     {

@@ -20,6 +20,12 @@ class ItemPage extends BasePage
         'btnAddToCart' => ['xpath' => '//div[@class=\'add-to-cart\']/button[@class=\'button btn-cart\']/span/span'],
         'btnDecreaseQuantity' => ['xpath' => '//div[@class=\'product-qty\']/input[@class=\'qty-decrease\']'],
         'btnWishList' => ['xpath' => '//div[@class=\'add-to-box\']/ul/li/a'],
+        'txtFlashMessage' => ['xpath' => '//div[@class=\'alert alert-success\']/ul/li/ul/li/span'],
+        'lnkReviewsTab' => ['xpath' => '//ul/li[@id=\'product_tabs_product_additional_data\']/a'],
+        'fldNickName' => ['xpath' => '//input[@id=\'nickname_field\']'],
+        'fldSummaryOfYourReview' => ['xpath' => '//input[@id=\'summary_field\']'],
+        'fldReview' => ['xpath' => '//textarea[@id=\'review_field\']'],
+        'btnSubmitReview' => ['xpath' => '//button[@class=\'button\']/span/span[contains(text(), "Submit Review")]'],
         ];
 
     /**
@@ -126,5 +132,94 @@ class ItemPage extends BasePage
 
         return $this->getElement('btnWishList');
     }
+
+    /**
+     * @return Element
+     */
+    public function getTxtFlashMessage()
+    {
+        $this->waitElement('txtFlashMessage');
+
+        return $this->getElement('txtFlashMessage');
+    }
+
+    /**
+     * @return Element
+     */
+    public function getLnkReviewsTab()
+    {
+        $this->waitElement('lnkReviewsTab');
+
+        return $this->getElement('lnkReviewsTab');
+    }
+
+    /**
+     * @return Element
+     */
+    public function getFldNickName()
+    {
+        $this->waitElement('fldNickName');
+
+        return $this->getElement('fldNickName');
+    }
+
+    /**
+     * @return Element
+     */
+    public function getFldSummaryOfYourReview()
+    {
+        $this->waitElement('fldSummaryOfYourReview');
+
+        return $this->getElement('fldSummaryOfYourReview');
+    }
+
+    /**
+     * @return Element
+     */
+    public function getFldReview()
+    {
+        $this->waitElement('fldReview');
+
+        return $this->getElement('fldReview');
+    }
+
+    public function getQualityByStars($stars)
+    {
+        return $this->find('xpath', '//tr[@class=\'first odd\']/td[' . $stars . ']/input');
+    }
+
+    public function getPriceByStars($stars)
+    {
+        return $this->find('xpath', '//tr[@class=\'even\']/td[' . $stars .']/input');
+    }
+
+    public function getValueByStars($stars)
+    {
+        return $this->find('xpath', '//tr[@class=\'last odd\']/td[' . $stars . ']/input');
+    }
+
+
+    /**
+     * @return Element
+     */
+    public function getBtnSubmitReview()
+    {
+        $this->waitElement('btnSubmitReview');
+
+        return $this->getElement('btnSubmitReview');
+    }
+
+    public function giveReview($nickName, $summaryOfYourReview, $review, $quality, $price, $value)
+    {
+        $this->getFldNickName()->setValue($nickName);
+        $this->getFldSummaryOfYourReview()->setValue($summaryOfYourReview);
+        $this->getFldReview()->setValue($review);
+        $this->getQualityByStars($quality)->click();
+        $this->getPriceByStars($price)->click();
+        $this->getValueByStars($value)->click();
+        $this->getBtnSubmitReview()->click();
+    }
+
+
 
 }
