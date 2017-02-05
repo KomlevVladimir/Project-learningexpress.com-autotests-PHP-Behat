@@ -2079,5 +2079,69 @@ class ClientContext extends BaseContext
 
     }
 
+    /**
+     * @When /^client creates an account with data: (.*), (.*), (.*), (.*), (.*), (.*), (.*)$/
+     */
+    public function clientCreatesAnAccountWithData(
+        $firstName, $lastName, $emailAddress, $signUpForNewsletter,
+        $password, $confirmPassword, $rememberMe
+    )
+    {
+        $this->getLoginOrCreateAnAccountPage()->getBtnCreateAnAccount()->click();
+        if ($firstName == 'random') {
+            $firstName = TestDataHelper::GetRandomFirstName();
+        }
+        if ($lastName == 'random') {
+            $lastName = TestDataHelper::GetRandomLastName();
+        }
+        if ($emailAddress == 'random') {
+            $emailAddress = TestDataHelper::GetRandomEmail();
+        }
+        if ($signUpForNewsletter == 'random') {
+            $signUpForNewsletter = mt_rand(0, 1);
+        }
+        if ($password == 'random') {
+            $password = TestDataHelper::GetRandomPassword();
+        }
+        if ($confirmPassword == 'random') {
+            $confirmPassword = $password;
+        }
+        $this->getCreateAnAccountPage()->fillForms(
+            $firstName, $lastName, $emailAddress, $signUpForNewsletter,
+            $password, $confirmPassword, $rememberMe
+        );
+        $this->client->emailAddress = $this->getCreateAnAccountPage()->getFldEmailAddress()->getValue();
+        $this->client->password = $this->getCreateAnAccountPage()->getFldPassword()->getValue();
+        $this->getCreateAnAccountPage()->getBtnSubmit()->click();
+
+
+    }
+
+    /**
+     * @Then /^account should be created$/
+     */
+    public function accountShouldBeCreated()
+    {
+        \PHPUnit_Framework_Assert::assertEquals(
+            '× Thank you for registering with Learning Express Toys.',
+            $this->getAccountDashboardPage()->getTxtFlashMessage()->getText(),
+            "Account is not created"
+        );
+    }
+
+    /**
+     * @Given /^client should be able to login with data: (.*)$/
+     */
+    public function clientShouldBeAbleToLoginWithData($rememberMe)
+    {
+        $this->clientClicksLogoutButton();
+        sleep(6);
+        $emailAddress = $this->client->emailAddress;
+        $password = $this->client->password;
+        $this->getHeaderBlockElements()->getBtnMyAccount()->click();
+        $this->clientAuthorizeWithData($emailAddress, $password, $rememberMe);
+        $this->clientShouldBeRedirectedToAccountDashboard();
+    }
+
 
 }

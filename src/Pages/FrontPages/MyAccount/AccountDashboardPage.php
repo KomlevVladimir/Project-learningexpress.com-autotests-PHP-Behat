@@ -24,6 +24,7 @@ class AccountDashboardPage extends BasePage
         'txtNewsletterSubscription' => ['xpath' => '//div[@class=\'col-2\']/div[@class=\'box\']/div[@class=\'box-content\']'],
         'lnkEditNewsLetterSubscription' => ['xpath' => '//div[@class=\'col2-set\']/div[@class=\'col-2\']/div/div/a'],
         'txtSubscriptionMessage' => ['xpath' => '//div[@class=\'alert alert-success\']/ul/li/ul/li/span'],
+        'txtFlashMessage' => ['xpath' => '//div[@class=\'alert alert-success\']'],
         ];
 
     /**
@@ -111,5 +112,15 @@ class AccountDashboardPage extends BasePage
         $this->waitElement('txtSubscriptionMessage');
 
         return $this->getElement('txtSubscriptionMessage');
+    }
+
+    /**
+     * @return Element
+     */
+    public function getTxtFlashMessage()
+    {
+        $this->waitElement('txtFlashMessage');
+
+        return $this->getElement('txtFlashMessage');
     }
 }

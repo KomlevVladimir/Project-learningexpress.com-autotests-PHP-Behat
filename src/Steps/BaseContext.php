@@ -42,6 +42,7 @@ use src\Pages\FrontPages\ElectronicGiftCardPage;
 use src\Pages\FrontPages\Shop\SkillBuildersCatalogPage;
 use src\Pages\FrontPages\PostPage;
 use src\Pages\FrontPages\MonthlyArchivesPage;
+use src\Pages\FrontPages\CreateAnAccountPage;
 
 
 class BaseContext extends PageObjectContext
@@ -348,6 +349,14 @@ class BaseContext extends PageObjectContext
     public function getMonthlyArchivesPage()
     {
         return $this->getPage("MonthlyArchivesPage");
+    }
+
+    /**
+     * @return CreateAnAccountPage
+     */
+    public function getCreateAnAccountPage()
+    {
+        return $this->getPage("CreateAnAccountPage");
     }
 
 }

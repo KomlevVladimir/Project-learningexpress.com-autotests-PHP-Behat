@@ -88,4 +88,11 @@ class TestDataHelper
 
         return $faker->numberBetween(1, 25);
     }
+
+    public static function GetRandomPassword()
+    {
+        $faker = Faker\Factory::create();
+
+        return $faker->password(6, 12);
+    }
 }

@@ -20,6 +20,7 @@ class LoginOrCreateAnAccountPage extends BasePage
         'fldPassword' => ['xpath' => '//div[@class=\'input-box\']/input[@id=\'pass\']'],
         'btnLogin' => ['xpath' => '//button[@id=\'send2\']/span/span'],
         'chkRememberMe' => ['xpath' => '//ul/li[@id=\'remember-me-box\']/div[@class=\'input-box\']/input'],
+        'btnCreateAnAccount' => ['xpath' => '//button[@class=\'button\']/span/span[contains(text(), "Create an Account")]'],
     ];
 
     /**
@@ -67,5 +68,15 @@ class LoginOrCreateAnAccountPage extends BasePage
         $this->getFldEmailAddress()->setValue($emailAddress);
         $this->getFldPassword()->setValue($password);
         $this->getChkRememberMe()->setValue($rememberMe);
+    }
+
+    /**
+     * @return Element
+     */
+    public function getBtnCreateAnAccount()
+    {
+        $this->waitElement('btnCreateAnAccount');
+
+        return $this->getElement('btnCreateAnAccount');
     }
 }
