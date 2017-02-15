@@ -29,8 +29,6 @@ class AddressBookPage extends BasePage
      */
     public function getBtnAddNewAddress()
     {
-        $this->waitElement('btnAddNewAddress');
-
         return $this->getElement('btnAddNewAddress');
     }
 
@@ -39,8 +37,6 @@ class AddressBookPage extends BasePage
      */
     public function getTxtBillingAddress()
     {
-        $this->waitElement('txtBillingAddress');
-
         return $this->getElement('txtBillingAddress');
     }
 
@@ -49,8 +45,6 @@ class AddressBookPage extends BasePage
      */
     public function getTxtAddressHasBeenSaved()
     {
-        $this->waitElement('txtAddressHasBeenSaved');
-
         return $this->getElement('txtAddressHasBeenSaved');
     }
 
@@ -59,8 +53,6 @@ class AddressBookPage extends BasePage
      */
     public function getTxtShippingAddress()
     {
-        $this->waitElement('txtShippingAddress');
-
         return $this->getElement('txtShippingAddress');
     }
 
@@ -81,8 +73,6 @@ class AddressBookPage extends BasePage
      */
     public function getLnkChangeBillingAddress()
     {
-        $this->waitElement('lnkChangeBillingAddress');
-
         return $this->getElement('lnkChangeBillingAddress');
     }
 
@@ -91,8 +81,6 @@ class AddressBookPage extends BasePage
      */
     public function getLnkChangeShippingAddress()
     {
-        $this->waitElement('lnkChangeShippingAddress');
-
         return $this->getElement('lnkChangeShippingAddress');
     }
 

@@ -28,8 +28,6 @@ class LoginOrCreateAnAccountPage extends BasePage
      */
     public function getFldPassword()
     {
-        $this->waitElement('fldPassword');
-
         return $this->getElement('fldPassword');
     }
 
@@ -38,8 +36,6 @@ class LoginOrCreateAnAccountPage extends BasePage
      */
     public function getFldEmailAddress()
     {
-        $this->waitElement('fldEmailAddress');
-
         return $this->getElement('fldEmailAddress');
     }
 
@@ -48,8 +44,6 @@ class LoginOrCreateAnAccountPage extends BasePage
      */
     public function getBtnLogin()
     {
-        $this->waitElement('btnLogin');
-
         return $this->getElement('btnLogin');
     }
 
@@ -58,8 +52,6 @@ class LoginOrCreateAnAccountPage extends BasePage
      */
     public function getChkRememberMe()
     {
-        $this->waitElement('chkRememberMe');
-
         return $this->getCheckbox('chkRememberMe');
     }
 
@@ -75,8 +67,6 @@ class LoginOrCreateAnAccountPage extends BasePage
      */
     public function getBtnCreateAnAccount()
     {
-        $this->waitElement('btnCreateAnAccount');
-
         return $this->getElement('btnCreateAnAccount');
     }
 }

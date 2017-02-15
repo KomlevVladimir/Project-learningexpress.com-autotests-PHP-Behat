@@ -32,8 +32,6 @@ class AccountDashboardPage extends BasePage
      */
     public function getTxtHeader()
     {
-        $this->waitElement('txtHeader');
-
         return $this->getElement('txtHeader');
     }
 
@@ -42,8 +40,6 @@ class AccountDashboardPage extends BasePage
      */
     public function getLnkEditContactInformation()
     {
-        $this->waitElement('lnkEditContactInformation');
-
         return $this->getElement('lnkEditContactInformation');
     }
 
@@ -52,8 +48,6 @@ class AccountDashboardPage extends BasePage
      */
     public function getTxtContactInformation()
     {
-        $this->waitElement('txtContactInformation');
-
         return $this->getElement('txtContactInformation');
     }
 
@@ -62,15 +56,11 @@ class AccountDashboardPage extends BasePage
      */
     public function getLnkChangePassword()
     {
-        $this->waitElement('lnkChangePassword');
-
         return $this->getElement('lnkChangePassword');
     }
 
     public function txtHelloMessageIsPresent()
     {
-        $this->waitElement('lnkChangePassword');
-
         return $this->isElementPresent('txtHelloMessage');
     }
 
@@ -79,8 +69,6 @@ class AccountDashboardPage extends BasePage
      */
     public function gettxtInformationHasBeenSavedMessage()
     {
-        $this->waitElement('txtInformationHasBeenSavedMessage');
-
         return $this->getElement('txtInformationHasBeenSavedMessage');
     }
 
@@ -89,8 +77,6 @@ class AccountDashboardPage extends BasePage
      */
     public function getTxtNewsletterSubscription()
     {
-        $this->waitElement('txtNewsletterSubscription');
-
         return $this->getElement('txtNewsletterSubscription');
     }
 
@@ -99,8 +85,6 @@ class AccountDashboardPage extends BasePage
      */
     public function getLnkEditNewsLetterSubscription()
     {
-        $this->waitElement('lnkEditNewsLetterSubscription');
-
         return $this->getElement('lnkEditNewsLetterSubscription');
     }
 
@@ -109,8 +93,6 @@ class AccountDashboardPage extends BasePage
      */
     public function getTxtSubscriptionMessage()
     {
-        $this->waitElement('txtSubscriptionMessage');
-
         return $this->getElement('txtSubscriptionMessage');
     }
 
@@ -119,8 +101,6 @@ class AccountDashboardPage extends BasePage
      */
     public function getTxtFlashMessage()
     {
-        $this->waitElement('txtFlashMessage');
-
         return $this->getElement('txtFlashMessage');
     }
 }

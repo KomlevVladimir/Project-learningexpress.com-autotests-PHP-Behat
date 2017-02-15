@@ -33,8 +33,6 @@ class ItemPage extends BasePage
      */
     public function getTxtItemName()
     {
-        $this->waitElement('txtItemName');
-
         return $this->getElement('txtItemName');
     }
 
@@ -43,8 +41,6 @@ class ItemPage extends BasePage
      */
     public function getTxtItemPrice()
     {
-        $this->waitElement('txtItemPrice');
-
         return $this->getElement('txtItemPrice');
     }
 
@@ -53,8 +49,6 @@ class ItemPage extends BasePage
      */
     public function getItemImage()
     {
-        $this->waitElement('itemImage');
-
         return $this->getElement('itemImage');
     }
 
@@ -68,8 +62,6 @@ class ItemPage extends BasePage
      */
     public function getLnkAdditionalInformationTab()
     {
-        $this->waitElement('lnkAdditionalInformationTab');
-
         return $this->getElement('lnkAdditionalInformationTab');
     }
 
@@ -78,8 +70,6 @@ class ItemPage extends BasePage
      */
     public function getTxtAdditionalInformationContent()
     {
-        $this->waitElement('txtAdditionalInformationContent');
-
         return $this->getElement('txtAdditionalInformationContent');
     }
 
@@ -88,8 +78,6 @@ class ItemPage extends BasePage
      */
     public function getFldQuantity()
     {
-        $this->waitElement('fldQuantity');
-
         return $this->getElement('fldQuantity');
     }
 
@@ -98,8 +86,6 @@ class ItemPage extends BasePage
      */
     public function getBtnIncreaseQuantity()
     {
-        $this->waitElement('btnIncreaseQuantity');
-
         return $this->getElement('btnIncreaseQuantity');
     }
 
@@ -108,8 +94,6 @@ class ItemPage extends BasePage
      */
     public function getBtnAddToCart()
     {
-        $this->waitElement('btnAddToCart');
-
         return $this->getElement('btnAddToCart');
     }
 
@@ -118,8 +102,6 @@ class ItemPage extends BasePage
      */
     public function getBtnDecreaseQuantity()
     {
-        $this->waitElement('btnDecreaseQuantity');
-
         return $this->getElement('btnDecreaseQuantity');
     }
 
@@ -128,8 +110,6 @@ class ItemPage extends BasePage
      */
     public function getBtnWishList()
     {
-        $this->waitElement('btnWishList');
-
         return $this->getElement('btnWishList');
     }
 
@@ -138,8 +118,6 @@ class ItemPage extends BasePage
      */
     public function getTxtFlashMessage()
     {
-        $this->waitElement('txtFlashMessage');
-
         return $this->getElement('txtFlashMessage');
     }
 
@@ -148,8 +126,6 @@ class ItemPage extends BasePage
      */
     public function getLnkReviewsTab()
     {
-        $this->waitElement('lnkReviewsTab');
-
         return $this->getElement('lnkReviewsTab');
     }
 
@@ -158,8 +134,6 @@ class ItemPage extends BasePage
      */
     public function getFldNickName()
     {
-        $this->waitElement('fldNickName');
-
         return $this->getElement('fldNickName');
     }
 
@@ -168,8 +142,6 @@ class ItemPage extends BasePage
      */
     public function getFldSummaryOfYourReview()
     {
-        $this->waitElement('fldSummaryOfYourReview');
-
         return $this->getElement('fldSummaryOfYourReview');
     }
 
@@ -178,8 +150,6 @@ class ItemPage extends BasePage
      */
     public function getFldReview()
     {
-        $this->waitElement('fldReview');
-
         return $this->getElement('fldReview');
     }
 
@@ -204,8 +174,6 @@ class ItemPage extends BasePage
      */
     public function getBtnSubmitReview()
     {
-        $this->waitElement('btnSubmitReview');
-
         return $this->getElement('btnSubmitReview');
     }
 
@@ -219,7 +187,5 @@ class ItemPage extends BasePage
         $this->getValueByStars($value)->click();
         $this->getBtnSubmitReview()->click();
     }
-
-
 
 }

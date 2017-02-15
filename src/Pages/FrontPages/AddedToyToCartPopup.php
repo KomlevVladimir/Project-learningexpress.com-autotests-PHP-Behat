@@ -20,8 +20,6 @@ class AddedToyToCartPopup extends BasePage
      */
     public function getLnkItemName()
     {
-        $this->waitElement('lnkItemName');
-
         return $this->getElement('lnkItemName');
     }
 
@@ -30,8 +28,6 @@ class AddedToyToCartPopup extends BasePage
      */
     public function getBtnContinueShopping()
     {
-        $this->waitElement('btnContinueShopping');
-
         return $this->getElement('btnContinueShopping');
     }
 
@@ -40,8 +36,6 @@ class AddedToyToCartPopup extends BasePage
      */
     public function getBtnGoToShoppingCart()
     {
-        $this->waitElement('btnGoToShoppingCart');
-
         return $this->getElement('btnGoToShoppingCart');
     }
 }

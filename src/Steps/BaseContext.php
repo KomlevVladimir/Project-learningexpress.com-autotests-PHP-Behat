@@ -3,7 +3,13 @@
 namespace src\Steps;
 
 use SensioLabs\Behat\PageObjectExtension\Context\PageObjectContext;
+use SensioLabs\Behat\PageObjectExtension\Context\PageObjectAware;
+use SensioLabs\Behat\PageObjectExtension\PageObject\Factory as PageObjectFactory;
+use SensioLabs\Behat\PageObjectExtension\PageObject\Page;
+use SensioLabs\Behat\PageObjectExtension\PageObject\Element;
 use Behat\Behat\Hook\Scope\AfterScenarioScope;
+use Behat\Behat\Context\Context;
+use Behat\MinkExtension\Context\RawMinkContext;
 use src\Pages\FrontPages\MainPage;
 use src\Pages\FrontPages\CatalogAdvancedSearchPage;
 use src\Pages\FrontPages\ShopPage;
@@ -45,8 +51,65 @@ use src\Pages\FrontPages\MonthlyArchivesPage;
 use src\Pages\FrontPages\CreateAnAccountPage;
 
 
-class BaseContext extends PageObjectContext
+class BaseContext extends RawMinkContext implements Context, PageObjectAware
 {
+    /**
+     * @var PageObjectFactory
+     */
+    private $pageObjectFactory = null;
+
+    /**
+     * @param string $name
+     *
+     * @return Page
+     *
+     * @throws \RuntimeException
+     */
+    public function getPage($name)
+    {
+        if (null === $this->pageObjectFactory){
+            throw new \RuntimeException('To create pages you need to pass a factory with setPageObjectFactory()');
+        }
+
+        return $this->pageObjectFactory->createPage($name);
+    }
+
+    /**
+     * @param string $name
+     *
+     * @return Element
+     *
+     * @throws \RuntimeException
+     */
+    public function getElement($name)
+    {
+        if (null === $this->pageObjectFactory){
+            throw new \RuntimeException('To create elements you need to pass a factory with setPageObjectFactory()');
+        }
+
+        return $this->pageObjectFactory->createElement($name);
+    }
+
+    /**
+     * @param PageObjectFactory $pageObjectFactory
+     */
+    public function setPageObjectFactory(PageObjectFactory $pageObjectFactory)
+    {
+        $this->pageObjectFactory = $pageObjectFactory;
+    }
+
+    /**
+     * @return PageObjectFactory
+     */
+    public function getPageObjectFactory()
+    {
+        if (null === $this->pageObjectFactory){
+            throw new \RuntimeException('To access the page factory you need to pass it first with setPageObjectFactory()');
+        }
+
+        return $this->pageObjectFactory;
+    }
+
     /**
      * @return MainPage
      */

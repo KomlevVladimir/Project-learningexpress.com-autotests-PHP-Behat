@@ -24,8 +24,11 @@ class LogoutSuccessPage extends BasePage
      */
     public function getTxtHeader()
     {
-        $this->waitElement('txtHeader');
-
         return $this->getElement('txtHeader');
+    }
+
+    public function waitUntilHeaderIsPresent()
+    {
+        $this->waitUntilElementIsPresent('txtHeader');
     }
 }

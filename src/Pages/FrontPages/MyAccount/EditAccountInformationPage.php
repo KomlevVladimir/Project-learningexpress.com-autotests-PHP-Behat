@@ -26,8 +26,6 @@ class EditAccountInformationPage extends BasePage
      */
     public function getFldFirstName()
     {
-        $this->waitElement('fldFirstName');
-
         return $this->getElement('fldFirstName');
     }
 
@@ -36,8 +34,6 @@ class EditAccountInformationPage extends BasePage
      */
     public function getFldLastName()
     {
-        $this->waitElement('fldLastName');
-
         return $this->getElement('fldLastName');
     }
 
@@ -46,8 +42,6 @@ class EditAccountInformationPage extends BasePage
      */
     public function getFldEmailAddress()
     {
-        $this->waitElement('fldEmailAddress');
-
         return $this->getElement('fldEmailAddress');
     }
 
@@ -64,8 +58,6 @@ class EditAccountInformationPage extends BasePage
      */
     public function getBtnSave()
     {
-        $this->waitElement('btnSave');
-
         return $this->getElement('btnSave');
     }
 }

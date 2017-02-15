@@ -13,6 +13,7 @@ class AddProductToWishlistPopup extends BasePage
         'lnkItemName' => ['xpath' => '//div[@id=\'product_info_box\']/div[@class=\'p_name\']/a'],
         'btnContinueShopping' => ['xpath' => '//div/a[@id=\'continue_shopping\']'],
         'btnGoToWishList' => ['xpath' => '//div[@class=\'wrapper_box pop_wishlist1\'][3]/div[4]/a[@id=\'shopping_cart\']'],
+        'txtSuccessfullyMessage' => ['xpath' => '']
     ];
 
     /**
@@ -20,8 +21,6 @@ class AddProductToWishlistPopup extends BasePage
      */
     public function getLnkItemName()
     {
-        $this->waitElement('lnkItemName');
-
         return $this->getElement('lnkItemName');
     }
 
@@ -30,8 +29,6 @@ class AddProductToWishlistPopup extends BasePage
      */
     public function getBtnContinueShopping()
     {
-        $this->waitElement('btnContinueShopping');
-
         return $this->getElement('btnContinueShopping');
     }
 
@@ -40,8 +37,11 @@ class AddProductToWishlistPopup extends BasePage
      */
     public function getBtnGoToWishList()
     {
-        $this->waitElement('btnGoToWishList');
-
         return $this->getElement('btnGoToWishList');
+    }
+
+    public function waitUntilPopupIsPresent()
+    {
+        $this->waitUntilElementIsPresent('btnContinueShopping');
     }
 }

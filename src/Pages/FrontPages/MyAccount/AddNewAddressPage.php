@@ -34,8 +34,6 @@ class AddNewAddressPage extends BasePage
      */
     public function getFldTelephone()
     {
-        $this->waitElement('fldTelephone');
-
         return $this->getElement('fldTelephone');
     }
 
@@ -44,8 +42,6 @@ class AddNewAddressPage extends BasePage
      */
     public function getFldStreetAddress()
     {
-        $this->waitElement('fldStreetAddress');
-
         return $this->getElement('fldStreetAddress');
     }
 
@@ -54,8 +50,6 @@ class AddNewAddressPage extends BasePage
      */
     public function getBtnAddNewAddress()
     {
-        $this->waitElement('btnAddNewAddress');
-
         return $this->getElement('btnAddNewAddress');
     }
 
@@ -64,8 +58,6 @@ class AddNewAddressPage extends BasePage
      */
     public function getFldCity()
     {
-        $this->waitElement('fldCity');
-
         return $this->getElement('fldCity');
     }
 
@@ -74,8 +66,6 @@ class AddNewAddressPage extends BasePage
      */
     public function getFldPostalCode()
     {
-        $this->waitElement('fldPostalCode');
-
         return $this->getElement('fldPostalCode');
     }
 
@@ -84,8 +74,6 @@ class AddNewAddressPage extends BasePage
      */
     public function getFldState()
     {
-        $this->waitElement('fldState');
-
         return $this->getElement('fldState');
     }
 
@@ -94,8 +82,6 @@ class AddNewAddressPage extends BasePage
      */
     public function getFldCountry()
     {
-        $this->waitElement('fldCountry');
-
         return $this->getElement('fldCountry');
     }
 
@@ -104,8 +90,6 @@ class AddNewAddressPage extends BasePage
      */
     public function getChkBillingAddress()
     {
-        $this->waitElement('chkBillingAddress');
-
         return $this->getCheckbox('chkBillingAddress');
     }
 
@@ -114,8 +98,6 @@ class AddNewAddressPage extends BasePage
      */
     public function getChkShippingAddress()
     {
-        $this->waitElement('chkShippingAddress');
-
         return $this->getCheckbox('chkShippingAddress');
     }
 
@@ -138,8 +120,6 @@ class AddNewAddressPage extends BasePage
      */
     public function getBtnSaveAddress()
     {
-        $this->waitElement('btnSaveAddress');
-
         return $this->getElement('btnSaveAddress');
     }
 
@@ -148,8 +128,6 @@ class AddNewAddressPage extends BasePage
      */
     public function getFldFirstName()
     {
-        $this->waitElement('fldFirstName');
-
         return $this->getElement('fldFirstName');
     }
 
@@ -158,8 +136,6 @@ class AddNewAddressPage extends BasePage
      */
     public function getFldLastName()
     {
-        $this->waitElement('fldLastName');
-
         return $this->getElement('fldLastName');
     }
 }

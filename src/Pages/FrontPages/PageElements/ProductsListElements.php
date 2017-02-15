@@ -16,6 +16,8 @@ class ProductsListElements extends BasePage
         'imagesItemsSortedByList' => ['xpath' => '//div[@class=\'category-products\']/ol[@id=\'products-list\']/li/a[@class=\'product-image\']'],
         'lstShowPerPage' => ['xpath' => '//select[@id=\'show-product\']'],
         'cartPopup' => ['xpath' => '//div[@class=\'wrapper_box\']'],
+        'txtGridStrong' => ['xpath' => '//strong[@class=\'grid\']'],
+        'txtListStrong' => ['xpath' => '//strong[@class=\'list\']'],
         ];
 
     public function getItemPrice($i)
@@ -53,8 +55,6 @@ class ProductsListElements extends BasePage
      */
     public function getBtnGridSorting()
     {
-        $this->waitElement('btnGridSorting');
-
         return $this->getElement('btnGridSorting');
     }
 
@@ -63,33 +63,26 @@ class ProductsListElements extends BasePage
      */
     public function getBtnListSorting()
     {
-        $this->waitElement('btnListSorting');
-
         return $this->getElement('btnListSorting');
     }
 
 
     public function imagesItemsSortedByGridIsPresent()
     {
-        $this->waitElement('imagesItemsSortedByGrid');
-
         return $this->isElementPresent('imagesItemsSortedByGrid');
     }
 
     public function imagesItemsSortedByListIsPresent()
     {
-        $this->waitElement('imagesItemsSortedByList');
-
         return $this->isElementPresent('imagesItemsSortedByList');
     }
+
 
     /**
      * @return Element
      */
     public function getLstShowPerPage()
     {
-        $this->waitElement('lstShowPerPage');
-
         return $this->getElement('lstShowPerPage');
     }
 
@@ -105,8 +98,6 @@ class ProductsListElements extends BasePage
      */
     public function getCartPopup()
     {
-        $this->waitElement('cartPopup');
-
         return $this->getElement('cartPopup');
     }
 
@@ -118,6 +109,16 @@ class ProductsListElements extends BasePage
     public function getItemByName($itemName)
     {
         return $this->find('xpath', '//div[@class=\'product-shop\']/div/h2/a[contains(text(), "' . $itemName .'")]');
+    }
+
+    public function waitUntilGridStrongIsPresent()
+    {
+        $this->waitUntilElementIsPresent('txtGridStrong');
+    }
+
+    public function waitUntilListStrongIsPresent()
+    {
+        $this->waitUntilElementIsPresent('txtListStrong');
     }
 
 }

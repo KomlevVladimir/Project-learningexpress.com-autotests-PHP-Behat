@@ -16,6 +16,5 @@ Feature: Footer navigation
     |Help & FAQs          |/help                                    |
     |Returns              |/returns                                 |
     |Shipping Policy      |/shipping                                |
-    |Gift Cards           |/electronic-gift-card/                   |
     |Coupons & Promotions |/toys-sales-and-promotions/              |
     |Franchise            |/franchise/                              |

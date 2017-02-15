@@ -18,8 +18,6 @@ class PostPage extends BasePage
      */
     public function getTxtHeader()
     {
-        $this->waitElement('txtHeader');
-
         return $this->getElement('txtHeader');
     }
 }

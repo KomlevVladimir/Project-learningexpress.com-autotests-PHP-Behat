@@ -29,8 +29,6 @@ class ShoppingCartPage extends BasePage
      */
     public function getCartTable()
     {
-        $this->waitElement('cartTable');
-
         return $this->getTable('cartTable');
     }
 
@@ -39,8 +37,6 @@ class ShoppingCartPage extends BasePage
      */
     public function getBtnClearCart()
     {
-        $this->waitElement('btnClearCart');
-
         return $this->getElement('btnClearCart');
     }
 
@@ -49,8 +45,6 @@ class ShoppingCartPage extends BasePage
      */
     public function getBtnUpdateCart()
     {
-        $this->waitElement('btnUpdateCart');
-
         return $this->getElement('btnUpdateCart');
     }
 
@@ -59,8 +53,6 @@ class ShoppingCartPage extends BasePage
      */
     public function getTxtCartIsEmpty()
     {
-        $this->waitElement('txtCartIsEmpty');
-
         return $this->getElement('txtCartIsEmpty');
     }
 
@@ -74,8 +66,6 @@ class ShoppingCartPage extends BasePage
      */
     public function getBtnContinueShopping()
     {
-        $this->waitElement('btnContinueShopping');
-
         return $this->getElement('btnContinueShopping');
     }
 
@@ -84,8 +74,6 @@ class ShoppingCartPage extends BasePage
      */
     public function getTxtTotalAmountDue()
     {
-        $this->waitElement('txtTotalAmountDue');
-
         return $this->getElement('txtTotalAmountDue');
     }
 
@@ -94,9 +82,12 @@ class ShoppingCartPage extends BasePage
      */
     public function getTxtMessageItemHasBeenAdded()
     {
-        $this->waitElement('txtMessageItemHasBeenAdded');
-
         return $this->getElement('txtMessageItemHasBeenAdded');
+    }
+
+    public function waitUntilCartIsEmpty()
+    {
+        $this->waitUntilElementIsPresent('txtCartIsEmpty');
     }
 
 }

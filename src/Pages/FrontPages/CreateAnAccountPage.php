@@ -32,8 +32,6 @@ class CreateAnAccountPage extends BasePage
      */
     public function getFldPassword()
     {
-        $this->waitElement('fldPassword');
-
         return $this->getElement('fldPassword');
     }
 
@@ -42,8 +40,6 @@ class CreateAnAccountPage extends BasePage
      */
     public function getFldEmailAddress()
     {
-        $this->waitElement('fldEmailAddress');
-
         return $this->getElement('fldEmailAddress');
     }
 
@@ -52,8 +48,6 @@ class CreateAnAccountPage extends BasePage
      */
     public function getFldFirstName()
     {
-        $this->waitElement('fldFirstName');
-
         return $this->getElement('fldFirstName');
     }
 
@@ -62,8 +56,6 @@ class CreateAnAccountPage extends BasePage
      */
     public function getFldLastName()
     {
-        $this->waitElement('fldLastName');
-
         return $this->getElement('fldLastName');
     }
 
@@ -72,8 +64,6 @@ class CreateAnAccountPage extends BasePage
      */
     public function getFldConfirmPassword()
     {
-        $this->waitElement('fldConfirmPassword');
-
         return $this->getElement('fldConfirmPassword');
     }
 
@@ -83,8 +73,6 @@ class CreateAnAccountPage extends BasePage
      */
     public function getChkRememberMe()
     {
-        $this->waitElement('chkRememberMe');
-
         return $this->getCheckbox('chkRememberMe');
     }
 
@@ -93,8 +81,6 @@ class CreateAnAccountPage extends BasePage
      */
     public function getChkSignUpForNewsletter()
     {
-        $this->waitElement('chkSignUpForNewsletter');
-
         return $this->getCheckbox('chkSignUpForNewsletter');
     }
 
@@ -115,8 +101,6 @@ class CreateAnAccountPage extends BasePage
      */
     public function getBtnSubmit()
     {
-        $this->waitElement('btnSubmit');
-
         return $this->getElement('btnSubmit');
     }
 

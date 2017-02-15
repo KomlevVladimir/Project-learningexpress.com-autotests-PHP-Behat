@@ -27,6 +27,7 @@ class MainPage extends BasePage
         'lnkSecondItem' => ['xpath' => '//div[@class=\'products-grid row-fluid\'][1]/div[2]/div/a'],
         'lnkThirdItem' => ['xpath' => '//div[@class=\'products-grid row-fluid\'][1]/div[3]/div/a'],
         'lnkFourthItem' => ['xpath' => '//div[@class=\'products-grid row-fluid\'][2]/div[1]/div/a'],
+        'lnkMainLogo' => ['xpath' => '//a[@class=\'nivo-imageLink\'][2]'],
         ];
 
     /**
@@ -34,7 +35,6 @@ class MainPage extends BasePage
      */
     public function getFldChooseAge()
     {
-        $this->waitElement('fldChooseAge');
         return $this->getElement('fldChooseAge');
     }
 
@@ -43,7 +43,6 @@ class MainPage extends BasePage
      */
     public function getFldChooseInterests()
     {
-        $this->waitElement('fldChooseInterests');
         return $this->getElement('fldChooseInterests');
     }
 
@@ -52,7 +51,6 @@ class MainPage extends BasePage
      */
     public function getBtnToyFinderSearch()
     {
-        $this->waitElement('btnToyFinderSearch');
         return $this->getElement('btnToyFinderSearch');
     }
 
@@ -61,7 +59,6 @@ class MainPage extends BasePage
      */
     public function getFldBudgetFrom()
     {
-        $this->waitElement('fldBudgetFrom');
         return $this->getElement('fldBudgetFrom');
     }
 
@@ -70,7 +67,6 @@ class MainPage extends BasePage
      */
     public function getFldBudgetTo()
     {
-        $this->waitElement('fldBudgetTo');
         return $this->getElement('fldBudgetTo');
     }
 
@@ -79,7 +75,6 @@ class MainPage extends BasePage
      */
     public function getUntilTwelveMonths()
     {
-        $this->waitElement('untilTwelveMonths');
         return $this->getElement('untilTwelveMonths');
     }
 
@@ -88,7 +83,6 @@ class MainPage extends BasePage
      */
     public function getFromOneToTwoYears()
     {
-        $this->waitElement('fromOneToTwoYears');
         return $this->getElement('fromOneToTwoYears');
     }
 
@@ -97,7 +91,6 @@ class MainPage extends BasePage
      */
     public function getElevenPlusYears()
     {
-        $this->waitElement('elevenPlusYears');
         return $this->getElement('elevenPlusYears');
     }
 
@@ -106,7 +99,6 @@ class MainPage extends BasePage
      */
     public function getArtAndCrafts()
     {
-        $this->waitElement('artAndCrafts');
         return $this->getElement('artAndCrafts');
     }
 
@@ -115,7 +107,6 @@ class MainPage extends BasePage
      */
     public function getConstructionToys()
     {
-        $this->waitElement('constructionToys');
         return $this->getElement('constructionToys');
     }
 
@@ -196,6 +187,11 @@ class MainPage extends BasePage
     public function getTxtEighthItemPrice()
     {
         return $this->getElement('txtEighthItemPrice');
+    }
+
+    public function waitUntilMainLogoIsPresent()
+    {
+        $this->waitUntilElementIsPresent('lnkMainLogo');
     }
 
 }

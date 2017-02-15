@@ -20,8 +20,6 @@ class EditItemPage extends BasePage
      */
     public function getTxtItemName()
     {
-        $this->waitElement('txtItemName');
-
         return $this->getElement('txtItemName');
     }
 
@@ -30,8 +28,6 @@ class EditItemPage extends BasePage
      */
     public function getFldQuantity()
     {
-        $this->waitElement('fldQuantity');
-
         return $this->getElement('fldQuantity');
     }
 
@@ -40,8 +36,6 @@ class EditItemPage extends BasePage
      */
     public function getBtnUpdateWishList()
     {
-        $this->waitElement('btnUpdateWishList');
-
         return $this->getElement('btnUpdateWishList');
     }
 }

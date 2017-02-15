@@ -21,8 +21,6 @@ class HeaderBlockElements extends BasePage
      */
     public function getBtnMyAccount()
     {
-        $this->waitElement('btnMyAccount');
-
         return $this->getElement('btnMyAccount');
     }
 
@@ -31,8 +29,6 @@ class HeaderBlockElements extends BasePage
      */
     public function getBtnLogout()
     {
-        $this->waitElement('btnLogout');
-
         return $this->getElement('btnLogout');
     }
 
@@ -61,8 +57,6 @@ class HeaderBlockElements extends BasePage
      */
     public function getLnkMeuItemNews()
     {
-        $this->waitElement('lnkMeuItemNews');
-
         return $this->getElement('lnkMeuItemNews');
     }
 
@@ -71,8 +65,6 @@ class HeaderBlockElements extends BasePage
      */
     public function getLnkMenuItemFranchising()
     {
-        $this->waitElement('lnkMenuItemFranchising');
-
         return $this->getElement('lnkMenuItemFranchising');
     }
 

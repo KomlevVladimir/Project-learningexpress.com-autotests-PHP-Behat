@@ -14,7 +14,8 @@ class LeftSidebarBlockElements extends BasePage
         'btnClearAll' => ['xpath' => '//div[@class=\'block-content\']/div[@class=\'actions\']/a'],
         'btnSkillsBuildersCatalog' => ['xpath' => '//p/a[contains(text(), "Skill Builders Catalog")]'],
         'btnVisitOuHeadQuarters' => ['xpath' => '//p/a[@class=\'btn\'][contains(text(), "Visit our Headquarters")]'],
-        'cmbArchiveList' => ['xpath' => '//select[@id=\'blog-archive-dropdown\']']
+        'cmbArchiveList' => ['xpath' => '//select[@id=\'blog-archive-dropdown\']'],
+        'txtSkillBuilders' =>['xpath' => '//dt[@class=\'odd\'][contains(text(), "Skill Builders")]'],
     ];
 
     /**
@@ -22,8 +23,6 @@ class LeftSidebarBlockElements extends BasePage
      */
     public function getFldSearch()
     {
-        $this->waitElement('fldSearch');
-
         return $this->getElement('fldSearch');
     }
 
@@ -32,8 +31,6 @@ class LeftSidebarBlockElements extends BasePage
      */
     public function getLnkAdvancedSearch()
     {
-        $this->waitElement('lnkAdvancedSearch');
-
         return $this->getElement('lnkAdvancedSearch');
     }
 
@@ -42,8 +39,6 @@ class LeftSidebarBlockElements extends BasePage
      */
     public function getBtnSearch()
     {
-        $this->waitElement('btnSearch');
-
         return $this->getElement('btnSearch');
     }
 
@@ -52,8 +47,6 @@ class LeftSidebarBlockElements extends BasePage
      */
     public function getBtnClearAll()
     {
-        $this->waitElement('btnClearAll');
-
         return $this->getElement('btnClearAll');
     }
 
@@ -62,8 +55,6 @@ class LeftSidebarBlockElements extends BasePage
      */
     public function getBtnSkillsBuildersCatalog()
     {
-        $this->waitElement('btnSkillsBuildersCatalog');
-
         return $this->getElement('btnSkillsBuildersCatalog');
     }
 
@@ -72,8 +63,6 @@ class LeftSidebarBlockElements extends BasePage
      */
     public function getBtnVisitOuHeadQuarters()
     {
-        $this->waitElement('btnVisitOuHeadQuarters');
-
         return $this->getElement('btnVisitOuHeadQuarters');
     }
 
@@ -92,8 +81,11 @@ class LeftSidebarBlockElements extends BasePage
      */
     public function getCmbArchiveList()
     {
-        $this->waitElement('cmbArchiveList');
-
         return $this->getElement('cmbArchiveList');
+    }
+
+    public function waitUntilSkillBuildersTittleIsPresent()
+    {
+        $this->waitUntilElementIsPresent('txtSkillBuilders');
     }
 }

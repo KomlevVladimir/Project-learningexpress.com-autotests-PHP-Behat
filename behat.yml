@@ -17,9 +17,9 @@ default:
         filters:
           tags: ~@todo && ~not-auto && ~@not-run
 
-    checkout:
-        paths: [ %paths.base%/features/checkout ]
-        contexts: [ src\Steps\ClientContext ]
+    smoke:
+        paths: [ %paths.base%/features/smoke ]
+        contexts: [ src\Steps\SmokeTestContext ]
         filters:
           tags: ~@todo && ~not-auto && ~@not-run
     front:

@@ -42,7 +42,7 @@ class ClientContext extends BaseContext
         $wishlistPage = $this->getWishlistPage();
         $wishlistPage->getWishlistTable()->getCellLinkForRowContainsTextAndTh($this->item->name, 'Remove item')->click();
         $wishlistPage->confirmPopup();
-        sleep(2);
+        $wishlistPage->waitUntilWishlistIsEmpty();
     }
 
     /**
@@ -153,9 +153,9 @@ class ClientContext extends BaseContext
     }
 
     /**
-     * @When /^client clicks to link (.*) on the toy finder sidebar$/
+     * @When /^client clicks link (.*) on the toy finder sidebar$/
      */
-    public function clientClicksToLinkOnTheToyFinderSidebar($link)
+    public function clientClicksLinkOnTheToyFinderSidebar($link)
     {
         $this->getShopPage()->getLink($link)->click();
     }
@@ -173,12 +173,12 @@ class ClientContext extends BaseContext
     }
 
     /**
-     * @Given /^client clicks to clear all$/
+     * @Given /^client clicks clear all$/
      */
-    public function clientClicksToClearAll()
+    public function clientClicksClearAll()
     {
         $this->getLeftSidebarBlockElements()->getBtnClearAll()->click();
-        sleep(2);
+        $this->getLeftSidebarBlockElements()->waitUntilSkillBuildersTittleIsPresent();
     }
 
     /**
@@ -378,6 +378,7 @@ class ClientContext extends BaseContext
     public function clientSortsTheItemsByGrid()
     {
         $this->getProductsListElements()->getBtnGridSorting()->click();
+        $this->getProductsListElements()->waitUntilGridStrongIsPresent();
     }
 
     /**
@@ -410,6 +411,7 @@ class ClientContext extends BaseContext
     public function clientSortsTheItemsByList()
     {
         $this->getProductsListElements()->getBtnListSorting()->click();
+        $this->getProductsListElements()->waitUntilListStrongIsPresent();
     }
 
     /**
@@ -684,7 +686,7 @@ class ClientContext extends BaseContext
         $shoppingCartPage = $this->getShoppingCartPage();
         $shoppingCartPage->getCartTable()->getCellLinkForRowContainsTextAndTh($this->item->name, 'Remove item')->click();
         $shoppingCartPage->confirmPopup();
-        sleep(2);
+        $shoppingCartPage->waitUntilCartIsEmpty();
     }
 
     /**
@@ -819,7 +821,7 @@ class ClientContext extends BaseContext
      */
     public function clientShouldBeRedirectedToTheMainPage()
     {
-        sleep(6);
+        $this->getMainPage()->waitUntilMainLogoIsPresent();
         \PHPUnit_Framework_Assert::assertEquals(
             'https://learningexpress.com/',
             $this->getLogoutSuccessPage()->getSession()->getCurrentUrl(),
@@ -943,7 +945,7 @@ class ClientContext extends BaseContext
         $wishlistPage->getWishlistTable()->getCellLinkForRowContainsTextAndTh(
             $this->item->name, 'Remove item')->click();
         $wishlistPage->confirmPopup();
-        sleep(2);
+        $wishlistPage->waitUntilWishlistIsEmpty();
     }
 
     /**
@@ -1078,6 +1080,7 @@ class ClientContext extends BaseContext
         $this->clientIsOnThePage($pageName);
         $this->getProductsListElements()->getItemByName($firstItem)->click();
         $this->getItemPage()->getBtnWishList()->click();
+        $this->getAddProductToWishlistPopup()->waitUntilPopupIsPresent();
         $this->clientIsOnThePage($pageName);
         $this->getProductsListElements()->getItemByName($secondItem)->click();
         $this->getItemPage()->getBtnWishList()->click();
@@ -1201,7 +1204,7 @@ class ClientContext extends BaseContext
             "New password has not been saved"
         );
         $this->clientClicksLogoutButton();
-        sleep(3);
+        $this->getLogoutSuccessPage()->waitUntilHeaderIsPresent();
         $this->getPage('LoginOrCreateAnAccountPage')->open();
         $this->getLoginOrCreateAnAccountPage()->getFldEmailAddress()->setValue($emailAddress);
         $this->getLoginOrCreateAnAccountPage()->getFldPassword()->setValue($newPassword);
@@ -2135,7 +2138,7 @@ class ClientContext extends BaseContext
     public function clientShouldBeAbleToLoginWithData($rememberMe)
     {
         $this->clientClicksLogoutButton();
-        sleep(6);
+        $this->getLogoutSuccessPage()->waitUntilHeaderIsPresent();
         $emailAddress = $this->client->emailAddress;
         $password = $this->client->password;
         $this->getHeaderBlockElements()->getBtnMyAccount()->click();

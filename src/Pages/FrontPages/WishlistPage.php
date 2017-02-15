@@ -27,8 +27,6 @@ class WishlistPage extends BasePage
      */
     public function getWishlistTable()
     {
-        $this->waitElement('wishlistTable');
-
         return $this->getTable('wishlistTable');
     }
 
@@ -42,8 +40,6 @@ class WishlistPage extends BasePage
      */
     public function getTxtWishlistIsEmpty()
     {
-        $this->waitElement('txtWishlistIsEmpty');
-
         return $this->getElement('txtWishlistIsEmpty');
     }
 
@@ -52,8 +48,6 @@ class WishlistPage extends BasePage
      */
     public function getBtnUpdateWishlist()
     {
-        $this->waitElement('btnUpdateWishlist');
-
         return $this->getElement('btnUpdateWishlist');
     }
 
@@ -62,8 +56,11 @@ class WishlistPage extends BasePage
      */
     public function getBtnAddAllToCart()
     {
-        $this->waitElement('btnAddAllToCart');
-
         return $this->getElement('btnAddAllToCart');
+    }
+
+    public function waitUntilWishlistIsEmpty()
+    {
+        $this->waitUntilElementIsPresent('txtWishlistIsEmpty');
     }
 }

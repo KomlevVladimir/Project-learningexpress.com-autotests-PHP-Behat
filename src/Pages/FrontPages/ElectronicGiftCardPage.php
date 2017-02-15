@@ -31,8 +31,6 @@ class ElectronicGiftCardPage extends BasePage
      */
     public function getFldEnterAmount()
     {
-        $this->waitElement('fldEnterAmount');
-
         return $this->getElement('fldEnterAmount');
     }
 
@@ -41,8 +39,6 @@ class ElectronicGiftCardPage extends BasePage
      */
     public function getFldQuantity()
     {
-        $this->waitElement('fldQuantity');
-
         return $this->getElement('fldQuantity');
     }
 
@@ -51,8 +47,6 @@ class ElectronicGiftCardPage extends BasePage
      */
     public function getBtnAddToCard()
     {
-        $this->waitElement('btnAddToCard');
-
         return $this->getElement('btnAddToCard');
     }
 
@@ -61,8 +55,6 @@ class ElectronicGiftCardPage extends BasePage
      */
     public function getChkSendGiftCardToFriend()
     {
-        $this->waitElement('chkSendGiftCardToFriend');
-
         return $this->getElement('chkSendGiftCardToFriend');
     }
 
@@ -71,8 +63,6 @@ class ElectronicGiftCardPage extends BasePage
      */
     public function getTxtHeaderGiftCard()
     {
-        $this->waitElement('txtHeaderGiftCard');
-
         return $this->getElement('txtHeaderGiftCard');
     }
 
@@ -81,8 +71,6 @@ class ElectronicGiftCardPage extends BasePage
      */
     public function getFldRecipientName()
     {
-        $this->waitElement('fldRecipientName');
-
         return $this->getElement('fldRecipientName');
     }
 
@@ -91,8 +79,6 @@ class ElectronicGiftCardPage extends BasePage
      */
     public function getFldRecipientEmail()
     {
-        $this->waitElement('fldRecipientEmail');
-
         return $this->getElement('fldRecipientEmail');
     }
 
@@ -101,8 +87,6 @@ class ElectronicGiftCardPage extends BasePage
      */
     public function getFldCustomMessage()
     {
-        $this->waitElement('fldCustomMessage');
-
         return $this->getElement('fldCustomMessage');
     }
 }

@@ -25,8 +25,6 @@ class NewsLetterSubscriptionPage extends BasePage
      */
     public function getbtnSave()
     {
-        $this->waitElement('btnSave');
-
         return $this->getElement('btnSave');
     }
 
@@ -35,8 +33,6 @@ class NewsLetterSubscriptionPage extends BasePage
      */
     public function getChkGeneralSubscription()
     {
-        $this->waitElement('chkGeneralSubscription');
-
         return $this->getCheckbox('chkGeneralSubscription');
     }
 }

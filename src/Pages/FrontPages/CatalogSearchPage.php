@@ -19,7 +19,6 @@ class CatalogSearchPage extends BasePage
      */
     public function getTxtItemsNumber()
     {
-        $this->waitElement('txtItemsNumber');
         return $this->getElement('txtItemsNumber');
     }
 
@@ -28,7 +27,6 @@ class CatalogSearchPage extends BasePage
      */
     public function getTxtNoResultsMessage()
     {
-        $this->waitElement('txtNoResultsMessage');
         return $this->getElement('txtNoResultsMessage');
     }
 }

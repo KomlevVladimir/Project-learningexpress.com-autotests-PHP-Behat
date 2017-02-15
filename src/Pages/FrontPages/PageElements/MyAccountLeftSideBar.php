@@ -18,8 +18,6 @@ class MyAccountLeftSideBar extends BasePage
      */
     public function getLnkAddressBook()
     {
-        $this->waitElement('lnkAddressBook');
-
         return $this->getElement('lnkAddressBook');
     }
 

@@ -29,8 +29,6 @@ class ShopPage extends BasePage
      */
     public function getTxtFilterParameter()
     {
-        $this->waitElement('txtFilterParameter');
-
         return $this->getElement('txtFilterParameter');
     }
 
@@ -39,8 +37,6 @@ class ShopPage extends BasePage
      */
     public function getTxtItemsNumber()
     {
-        $this->waitElement('txtItemsNumber');
-
         return $this->getElement('txtItemsNumber');
     }
 

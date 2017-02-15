@@ -27,8 +27,6 @@ class ChangePasswordPage extends BasePage
      */
     public function getFldCurrentPassword()
     {
-        $this->waitElement('fldCurrentPassword');
-
         return $this->getElement('fldCurrentPassword');
     }
 
@@ -37,8 +35,6 @@ class ChangePasswordPage extends BasePage
      */
     public function getFldConfirmCurrentPassword()
     {
-        $this->waitElement('fldConfirmCurrentPassword');
-
         return $this->getElement('fldConfirmCurrentPassword');
     }
 
@@ -47,8 +43,6 @@ class ChangePasswordPage extends BasePage
      */
     public function getFldNewPassword()
     {
-        $this->waitElement('fldNewPassword');
-
         return $this->getElement('fldNewPassword');
     }
 
@@ -57,8 +51,6 @@ class ChangePasswordPage extends BasePage
      */
     public function getFldConfirmNewPassword()
     {
-        $this->waitElement('fldConfirmNewPassword');
-
         return $this->getElement('fldConfirmNewPassword');
     }
 
@@ -75,8 +67,6 @@ class ChangePasswordPage extends BasePage
      */
     public function getBtnSave()
     {
-        $this->waitElement('btnSave');
-
         return $this->getElement('btnSave');
     }
 

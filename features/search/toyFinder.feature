@@ -33,11 +33,9 @@ Feature: Search items using toy finder
     |from |to  |
     |50   |150 |
 
-
-
   Scenario Outline: Find items using toy finder side bar on the shop page
     Given client is on the shop page
-    When client clicks to link <link> on the toy finder sidebar
+    When client clicks link <link> on the toy finder sidebar
     Then items by link <link> should be found
 
   Examples:
@@ -51,8 +49,8 @@ Feature: Search items using toy finder
 
   Scenario Outline: Clear all filter conditions
     Given client is on the shop page
-    When client clicks to link <link> on the toy finder sidebar
-    And client clicks to clear all
+    When client clicks link <link> on the toy finder sidebar
+    And client clicks clear all
     Then filter condition is removed
 
   Examples:

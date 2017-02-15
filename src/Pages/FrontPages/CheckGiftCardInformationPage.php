@@ -26,8 +26,6 @@ class CheckGiftCardInformationPage extends BasePage
      */
     public function getFldEnterYourGiftCardCode()
     {
-        $this->waitElement('fldEnterYourGiftCardCode');
-
         return $this->getElement('fldEnterYourGiftCardCode');
     }
 
@@ -36,8 +34,6 @@ class CheckGiftCardInformationPage extends BasePage
      */
     public function getFldCaptcha()
     {
-        $this->waitElement('fldCaptcha');
-
         return $this->getElement('fldCaptcha');
     }
 
@@ -46,8 +42,6 @@ class CheckGiftCardInformationPage extends BasePage
      */
     public function getBtnCheckGiftCard()
     {
-        $this->waitElement('btnCheckGiftCard');
-
         return $this->getElement('btnCheckGiftCard');
     }
 
@@ -62,8 +56,6 @@ class CheckGiftCardInformationPage extends BasePage
      */
     public function getErrorMessage()
     {
-        $this->waitElement('errorMessage');
-
         return $this->getElement('errorMessage');
     }
 }

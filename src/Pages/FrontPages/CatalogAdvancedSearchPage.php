@@ -39,7 +39,6 @@ class CatalogAdvancedSearchPage extends BasePage
      */
     public function getTxtRecommendedAges()
     {
-        $this->waitElement('txtRecommendedAges');
         return $this->getElement('txtRecommendedAges');
     }
 
@@ -48,7 +47,6 @@ class CatalogAdvancedSearchPage extends BasePage
      */
     public function getTxtInterest()
     {
-        $this->waitElement('txtInterest');
         return $this->getElement('txtInterest');
     }
 
@@ -57,7 +55,6 @@ class CatalogAdvancedSearchPage extends BasePage
      */
     public function getTxtPrice()
     {
-        $this->waitElement('txtPrice');
         return $this->getElement('txtPrice');
     }
 
@@ -66,7 +63,6 @@ class CatalogAdvancedSearchPage extends BasePage
      */
     public function getTxtItemsNumber()
     {
-        $this->waitElement('txtItemsNumber');
         return $this->getElement('txtItemsNumber');
     }
 
@@ -75,7 +71,6 @@ class CatalogAdvancedSearchPage extends BasePage
      */
     public function getFldName()
     {
-        $this->waitElement('fldName');
         return $this->getElement('fldName');
     }
 
@@ -84,7 +79,6 @@ class CatalogAdvancedSearchPage extends BasePage
      */
     public function getFldDescription()
     {
-        $this->waitElement('fldDescription');
         return $this->getElement('fldDescription');
     }
 
@@ -93,7 +87,6 @@ class CatalogAdvancedSearchPage extends BasePage
      */
     public function getFldShortDescription()
     {
-        $this->waitElement('fldShortDescription');
         return $this->getElement('fldShortDescription');
     }
 
@@ -102,7 +95,6 @@ class CatalogAdvancedSearchPage extends BasePage
      */
     public function getFldSku()
     {
-        $this->waitElement('fldSku');
         return $this->getElement('fldSku');
     }
 
@@ -111,7 +103,6 @@ class CatalogAdvancedSearchPage extends BasePage
      */
     public function getFldPriceFrom()
     {
-        $this->waitElement('fldPriceFrom');
         return $this->getElement('fldPriceFrom');
     }
 
@@ -120,7 +111,6 @@ class CatalogAdvancedSearchPage extends BasePage
      */
     public function getFldPriceTo()
     {
-        $this->waitElement('fldPriceTo');
         return $this->getElement('fldPriceTo');
     }
 
@@ -129,7 +119,6 @@ class CatalogAdvancedSearchPage extends BasePage
      */
     public function getFldManufacturer()
     {
-        $this->waitElement('fldManufacturer');
         return $this->getElement('fldManufacturer');
     }
 
@@ -138,7 +127,6 @@ class CatalogAdvancedSearchPage extends BasePage
      */
     public function getBtnSearch()
     {
-        $this->waitElement('btnSearch');
         return $this->getElement('btnSearch');
     }
 
@@ -147,7 +135,6 @@ class CatalogAdvancedSearchPage extends BasePage
      */
     public function getItemFreight()
     {
-        $this->waitElement('itemFreight');
         return $this->getElement('itemFreight');
     }
 
@@ -156,7 +143,6 @@ class CatalogAdvancedSearchPage extends BasePage
      */
     public function getItemGiftCard()
     {
-        $this->waitElement('itemGiftCard');
         return $this->getElement('itemGiftCard');
     }
 
@@ -165,7 +151,6 @@ class CatalogAdvancedSearchPage extends BasePage
      */
     public function getItemStandard()
     {
-        $this->waitElement('itemStandard');
         return $this->getElement('itemStandard');
     }
 
@@ -244,8 +229,6 @@ class CatalogAdvancedSearchPage extends BasePage
      */
     public function getTxtResultMessage()
     {
-        $this->waitElement('txtResultMessage');
-
         return $this->getElement('txtResultMessage');
     }
 
@@ -254,15 +237,11 @@ class CatalogAdvancedSearchPage extends BasePage
      */
     public function getTxtNoResultMessage()
     {
-        $this->waitElement('txtNoResultMessage');
-
         return $this->getElement('txtNoResultMessage');
     }
 
     public function noResultMessageIsPresent()
     {
-        $this->waitElement('txtNoResultMessage');
-
         return $this->isElementPresent('txtNoResultMessage');
     }
 
